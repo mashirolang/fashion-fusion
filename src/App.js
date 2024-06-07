@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import "@fontsource/montserrat";
 import Men from "./pages/Men";
+import Shop from "./pages/Shop";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="men" element={<Men />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="shop/:type" element={<Shop />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
