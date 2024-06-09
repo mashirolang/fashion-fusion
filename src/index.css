@@ -34,3 +34,9 @@ body {
 .example-track-1 {
   background: #000000; /* Active track */
 }
+
+.hide-arrow[type="number"]::-webkit-inner-spin-button,
+.hide-arrow[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

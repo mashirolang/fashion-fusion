@@ -125,7 +125,7 @@ function Men() {
         </div>
 
         <div className="flex justify-center items-center my-6">
-          <p className="py-2 px-16 border-black border-[1px] text-center inline-block">
+          <p className="py-2 px-16 border-black border-[1px] hover:bg-black hover:text-white cursor-pointer text-center inline-block">
             SEE MORE
           </p>
         </div>

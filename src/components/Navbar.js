@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import LogoDefault from "../assets/img/logo.png";
 import LogoScrolled from "../assets/img/logo-red.png";
 import { Search, ShoppingCart, User } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
-  const isShopRoute = location.pathname.includes("/shop");
+  const isShopRoute =
+    location.pathname.includes("/shop") ||
+    location.pathname.includes("/details");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,44 +39,54 @@ function Navbar() {
         }`}
       >
         <div className="flex flex-row items-center gap-10">
-          <img
-            src={scrolled || isShopRoute ? LogoScrolled : LogoDefault}
-            className={`mr-2 ${scrolled || isShopRoute ? "w-44" : "w-72"}`}
-            alt="FashionFusion Logo"
-          />
+          <Link to="/">
+            <img
+              src={scrolled || isShopRoute ? LogoScrolled : LogoDefault}
+              className={`mr-2 ${scrolled || isShopRoute ? "w-44" : "w-72"}`}
+              alt="FashionFusion Logo"
+            />
+          </Link>
           <div
             className={`flex flex-row gap-10 items-center ${
               scrolled || isShopRoute ? "text-black" : "text-white"
             }`}
           >
-            <p
-              className={`font-semibold ${
-                scrolled || isShopRoute ? "text-[0.8rem]" : ""
-              }`}
-            >
-              MEN
-            </p>
-            <p
-              className={`font-semibold ${
-                scrolled || isShopRoute ? "text-[0.8rem]" : ""
-              }`}
-            >
-              WOMEN
-            </p>
-            <p
-              className={`font-semibold ${
-                scrolled || isShopRoute ? "text-[0.8rem]" : ""
-              }`}
-            >
-              SALE
-            </p>
-            <p
-              className={`font-semibold ${
-                scrolled || isShopRoute ? "text-[0.8rem]" : ""
-              }`}
-            >
-              BRANDS
-            </p>
+            <Link to="/men">
+              <p
+                className={`font-semibold hover:text-red-500 ${
+                  scrolled || isShopRoute ? "text-[0.8rem]" : ""
+                }`}
+              >
+                MEN
+              </p>
+            </Link>
+            <Link to="/women">
+              <p
+                className={`font-semibold hover:text-red-500 ${
+                  scrolled || isShopRoute ? "text-[0.8rem]" : ""
+                }`}
+              >
+                WOMEN
+              </p>
+            </Link>
+            <Link to="/sale">
+              <p
+                className={`font-semibold hover:text-red-500 ${
+                  scrolled || isShopRoute ? "text-[0.8rem]" : ""
+                }`}
+              >
+                SALE
+              </p>
+            </Link>
+            <Link to="/sale">
+              <p
+                className={`font-semibold hover:text-red-500 ${
+                  scrolled || isShopRoute ? "text-[0.8rem]" : ""
+                }`}
+              >
+                BRANDS
+              </p>
+            </Link>
           </div>
         </div>
         <div
